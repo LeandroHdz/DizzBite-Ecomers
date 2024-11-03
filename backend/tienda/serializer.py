@@ -6,22 +6,25 @@ class RoleSerializer(serializers.ModelSerializer):
         model = Role
         fields = ['name']
 
-class ProductSerializer(serializers.ModelSerializer):
+class ProductImageSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Product
-        fields = [
-            'name', 'description', 'price', 'category_id', 'created_at', 'updated_at'
-        ]
+        model = ProductImage
+        fields = ['product_id', 'image']
 
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ["name", 'parent_id']
 
-class ProductImageSerializer(serializers.ModelSerializer):
+
+class ProductSerializer(serializers.ModelSerializer):
+    images = ProductImageSerializer(many=True, read_only=True)
+    category = CategorySerializer(read_only=True)
     class Meta:
-        model = ProductImage
-        fields = ['product_id', 'img_url']
+        model = Product
+        fields = [
+            'name', 'description', 'price', 'category', 'images', 'created_at', 'updated_at'
+        ]
 
 class CartSerializer(serializers.ModelSerializer):
     class Meta:

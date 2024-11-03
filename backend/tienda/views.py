@@ -5,7 +5,7 @@ from .models import Product
 from .serializer import ProductSerializer
 
 
-class ProductApiView(APIView):
+class ProductApiView(APIView):#para ver listado de product
     # Permite el acceso a usuarios no autenticados
     permission_classes = [permissions.AllowAny]
 
