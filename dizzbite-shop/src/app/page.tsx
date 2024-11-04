@@ -1,8 +1,9 @@
+"use client"
 
-import { Mode } from "@/components/headres/mode";
+import NavbarDesktop from "@/components/headres/NavbarDesktop";
 
 export default function Home() {
   return (
-      <Mode/>
+      <NavbarDesktop/>
   );
 }

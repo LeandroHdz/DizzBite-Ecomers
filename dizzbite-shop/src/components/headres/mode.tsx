@@ -12,7 +12,6 @@ export function Mode() {
 
   return (
     <>
-    
     <Button 
       variant="outline" size="icon" className="bg-transparent"
       onClick={handlerClick}>
@@ -20,7 +19,6 @@ export function Mode() {
           <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 " />
           <span className="sr-only">Toggle theme</span>
         </Button>
-    
     </>
   )
 }
