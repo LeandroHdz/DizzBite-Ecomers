@@ -36,7 +36,7 @@ class CartItemSerializer(serializers.ModelSerializer):
         model = CartItem
         fields = ['cart_id', 'product_id', 'quantity']
 
-class Inventory(serializers.ModelSerializer):
+class InventorySerializer(serializers.ModelSerializer):
     class Meta:
         models = Inventory
         fields = ['product_id', 'quantity', 'reserved']
