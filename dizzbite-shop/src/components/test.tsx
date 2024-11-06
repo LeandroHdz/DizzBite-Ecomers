@@ -1,56 +1,16 @@
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
-import McCard from "./mc/mc-card";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "./ui/card";
 const Test = () => {
     return (
-       <div className="m-10">
-           <h2>Nuestros Departamentos</h2>
-           <ScrollArea className="w-full whitespace-nowrap ">
-           <div className="flex w-max space-x-4 p-4">
-           <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                />
-                <McCard
-                    title="Prueba Card 1"
-                    description="Descripción de prueba"
-                    src="https://via.placeholder.com/150"
-                /><McCard
-                title="Prueba Card 1"
-                description="Descripción de prueba"
-                src="https://via.placeholder.com/150"
-            />
-           </div>
-           <ScrollBar orientation="horizontal" />
-           </ScrollArea>
-                 
-                  
-       </div>
+      <Card className="m-5 bg-amber-600">
+        <CardHeader>
+            <CardTitle>Title</CardTitle>
+            <CardDescription>Description</CardDescription>
+        </CardHeader>
+        <CardContent>
+            <h2>Content</h2>
+        </CardContent>
+        <CardFooter>Footer</CardFooter>
+      </Card>
     );
 };
 
