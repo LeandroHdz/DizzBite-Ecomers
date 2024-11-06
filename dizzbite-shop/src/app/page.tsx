@@ -11,6 +11,7 @@ export default function Home() {
       <>
       <NavbarDesktop/>
       <HeroSection/>
+      <ScrollDepartments/>
       {/* <ScrollDepartments/>
       <ScrollRecentProducts/>
       <Test/>
