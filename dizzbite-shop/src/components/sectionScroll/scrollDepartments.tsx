@@ -8,8 +8,12 @@ const ScrollDepartments = () => {
         { name: "Ropa", icon: <Shirt /> },
         { name: "Hogar", icon: <Home /> },
         {name:"Carnes", icon: <Beef/>},
+        {name:"Frutas", icon:<Banana/>},
+        { name: "Electrónica", icon: <Tv /> },
+        { name: "Ropa", icon: <Shirt /> },
+        { name: "Hogar", icon: <Home /> },
+        {name:"Carnes", icon: <Beef/>},
         {name:"Frutas", icon:<Banana/>}
-        
     ];
 
     return (

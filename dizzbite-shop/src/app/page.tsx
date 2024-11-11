@@ -1,6 +1,8 @@
 "use client"
+import Footer from "@/components/footer";
 import HeroSection from "@/components/headres/heroSection";
 import NavbarDesktop from "@/components/headres/NavbarDesktop";
+import ScrollCard from "@/components/sectionScroll/scrollCard";
 import ScrollDepartments from "@/components/sectionScroll/scrollDepartments";
 import ScrollRecentProducts from "@/components/sectionScroll/scrollRecentProducts";
 
@@ -12,10 +14,13 @@ export default function Home() {
       <NavbarDesktop/>
       <HeroSection/>
       <ScrollDepartments/>
-      {/* <ScrollDepartments/>
       <ScrollRecentProducts/>
       <Test/>
-      <ScrollRecentProducts/> */}
+      <ScrollRecentProducts/>
+      <Test/>
+      <ScrollCard/>
+    
+      <Footer/>
       </>
   );
 }
