@@ -2,7 +2,7 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Tv, Shirt, Home, Beef, Banana  } from "lucide-react"; 
 
-const ScrollDepartments = () => {
+const CatPopulares = () => {
     const departments = [
         { name: "Electrónica", icon: <Tv /> },
         { name: "Ropa", icon: <Shirt /> },
@@ -18,7 +18,7 @@ const ScrollDepartments = () => {
 
     return (
         <div className="m-10">
-            <h2 className="text-2xl font-semibold mb-4">Nuestros Departamentos</h2>
+            <h2 className="text-2xl font-semibold mb-4">Categorías Populares</h2>
             <ScrollArea className="w-full overflow-x-auto whitespace-nowrap justify-center">
                 <div className="flex w-max space-x-4 p-4">
                     {departments.map((department, index) => (
@@ -41,4 +41,4 @@ const ScrollDepartments = () => {
     );
 };
 
-export default ScrollDepartments;
+export default CatPopulares;

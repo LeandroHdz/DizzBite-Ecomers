@@ -34,7 +34,7 @@ const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-8 lg:mx-20  p-6 lg:p-10 ">
+    <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 mx-2  p-5 w-full">
       <div className="relative h-[300px] lg:h-[500px] overflow-hidden rounded-lg shadow-md">
         <Carousel>
           <CarouselContent>
