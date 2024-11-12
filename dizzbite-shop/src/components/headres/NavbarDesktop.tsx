@@ -1,4 +1,3 @@
-import { Mode } from "./mode";
 import { ShoppingCart, User, Search, Phone, Plus } from "lucide-react";
 
 const NavbarDesktop = () => {
@@ -21,7 +20,7 @@ const NavbarDesktop = () => {
                         <a href="/signup" className="text-sm text-green-600 dark:text-green-500 hover:underline">
                             <Plus className="h-6 w-6 text-gray-900 dark:text-white" />
                         </a> {/* Icono de crear cuenta */}
-                        <Mode />
+                        
                     </div>
                 </div>
             </nav>

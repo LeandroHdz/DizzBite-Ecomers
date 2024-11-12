@@ -11,41 +11,41 @@ const ScrollCard = () => {
           <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>
           <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>
           <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>
           <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>   <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>
           <div className="flex w-max space-x-4 p-4">
               <Card className="bg-transparent border-none shadow-none">
                   <CardContent>
-                      <img src="/promos/imgTest.png" alt="product" className="cover w-44 hover:w-52 cursor-pointer"/>
+                      <img src="/promos/imgTest.png" alt="product" className="cover w-44  cursor-pointer"/>
                   </CardContent>
               </Card>
           </div>

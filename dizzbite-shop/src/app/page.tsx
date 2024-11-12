@@ -5,8 +5,7 @@ import NavbarDesktop from "@/components/headres/NavbarDesktop";
 import ScrollCard from "@/components/sectionScroll/scrollCard";
 import ScrollDepartments from "@/components/sectionScroll/scrollDepartments";
 import ScrollRecentProducts from "@/components/sectionScroll/scrollRecentProducts";
-
-import Test from "@/components/test";
+import PromoCard from "@/components/mc/promoCard";
 
 export default function Home() {
   return (
@@ -15,11 +14,12 @@ export default function Home() {
       <HeroSection/>
       <ScrollDepartments/>
       <ScrollRecentProducts/>
-      <Test/>
+      <PromoCard/>
       <ScrollRecentProducts/>
-      <Test/>
-      <ScrollCard/>
-    
+      <ScrollRecentProducts/>
+      <PromoCard/>
+      <ScrollCard/> 
+      <ScrollRecentProducts/>
       <Footer/>
       </>
   );

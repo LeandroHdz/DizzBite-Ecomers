@@ -1,42 +1,90 @@
+"use client"
+import { useState } from "react";
+import {ShoppingCart} from 'lucide-react'
+// En ProductCard
+type ProductCardProps = {
+    image: string;
+    name: string;
+    price: number;
+    discount?: number;
+    rating?: number; // Removido el valor predeterminado aquí
+};
 
-const TestBorrar = () => {
+const ProductCard: React.FC<ProductCardProps> = ({ image, name, price, discount, rating }) => {
+    const [quantity, setQuantity] = useState(1);
+    const [liked, setLiked] = useState(false);
+
+    // Solo establece `finalRating` a 5 si `rating` es `undefined`
+    const finalRating = rating ?? 0;
+
+    const finalPrice = discount ? price - (price * discount) / 100 : price;
+
+    const increaseQuantity = () => setQuantity(quantity + 1);
+    const decreaseQuantity = () => setQuantity(quantity > 1 ? quantity - 1 : 1);
+    const toggleLike = () => setLiked(!liked);
+
     return (
-        <div className=" max-w-min bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-            <a href="#">
-                <img className="p-8 rounded-t-lg" src="/promos/imgTest.png" alt="product image" />
+        <div className="w-64 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center overflow-hidden">
+            <a href="#" className="w-full">
+                <img className="p-5 rounded-t-lg h-48 object-cover w-full" src={image} alt={`${name} image`} />
             </a>
-            <div className="px-5 pb-5">
-                <a href="#" >
-                    <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white ">Apple Watch Series 7 GPS, </h5>
+            <div className="px-5 pb-5 w-full text-center">
+                <a href="#">
+                    <h5 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white truncate">
+                        {name}
+                    </h5>
                 </a>
-                <div className="flex items-center mt-2.5 mb-5">
-                    <div className="flex items-center space-x-1 rtl:space-x-reverse">
-                        <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg className="w-4 h-4 text-yellow-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
-                        <svg className="w-4 h-4 text-gray-200 dark:text-gray-600" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
-                            <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-                        </svg>
+                <div className="flex items-center justify-center mt-2.5 mb-5">
+                    <div className="flex items-center space-x-1">
+                        {[...Array(5)].map((_, i) => (
+                            <svg
+                                key={i}
+                                className={`w-4 h-4 ${i < finalRating ? 'text-yellow-300' : 'text-gray-300'}`}
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.973a1 1 0 00.95.69h4.18c.969 0 1.371 1.24.588 1.81l-3.388 2.46a1 1 0 00-.364 1.118l1.286 3.973c.3.921-.755 1.688-1.54 1.118l-3.388-2.46a1 1 0 00-1.176 0l-3.388 2.46c-.784.57-1.838-.197-1.539-1.118l1.286-3.973a1 1 0 00-.364-1.118l-3.388-2.46c-.783-.57-.38-1.81.588-1.81h4.18a1 1 0 00.95-.69l1.286-3.973z" />
+                            </svg>
+                        ))}
                     </div>
-                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">5.0</span>
+                    <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
+                        {finalRating}.0
+                    </span>
                 </div>
-                <div className="flex items-center justify-between">
-                    <span className="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-                    <a href="#" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+                <div className="flex items-center justify-center space-x-2">
+                    <span className="text-2xl font-bold text-gray-900 dark:text-white">${finalPrice.toFixed(2)}</span>
+                    {discount && (
+                        <span className="text-sm text-red-500 line-through">${price.toFixed(2)}</span>
+                    )}
+                </div>
+                <div className="flex items-center justify-center mt-3 space-x-2">
+                    <button onClick={decreaseQuantity} className="px-3 py-1 border rounded-lg">-</button>
+                    <span className="mx-2">{quantity}</span>
+                    <button onClick={increaseQuantity} className="px-3 py-1 border rounded-lg">+</button>
+                </div>
+                <div className="flex items-center justify-center mt-4 space-x-3">
+                    <button
+                        className="flex items-center justify-center space-x-2 text-white bg-emerald-500 hover:bg-emerald-600 focus:ring-4 focus:outline-none focus:ring-emerald-700 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-500 dark:hover:bg-blue-600 dark:focus:ring-blue-700"
+                        onClick={() => alert(`Agregaste ${quantity} productos al carrito`)}
+                    >   
+                       <ShoppingCart className="w-5 h-5 " />
+                        {/* <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 3h2l.4 2M7 13h8l1.6-8H4.4L3 5m5 8a2 2 0 100 4 2 2 0 000-4zm7 2a2 2 0 100-4 2 2 0 000 4z" />
+                        </svg> */}
+                        <span>Añadir</span>
+                    </button>
+                    <button
+                        className={`flex items-center justify-center space-x-2 px-3 py-2 rounded-lg ${liked ? 'text-red-500' : 'text-gray-500'} hover:bg-gray-100 dark:hover:bg-gray-700`}
+                        onClick={toggleLike}
+                    >
+                        <span>{liked ? '❤️' : '🤍'}</span>
+                        <span>Me gusta</span>
+                    </button>
                 </div>
             </div>
         </div>
+    );
+};
 
-    )
-}
-
-export default TestBorrar
+export default ProductCard;
