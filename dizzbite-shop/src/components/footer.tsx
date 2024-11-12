@@ -3,7 +3,7 @@
 const Footer = () => {
     return (
        
-        <footer className="bg-slate-300 dark:bg-gray-900">
+        <footer className="bg-gradient-to-r from-slate-950 to-purple-900 text-white ">
             <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
                 <div className="md:flex md:justify-between">
                     <div className="mb-6 md:mb-0">

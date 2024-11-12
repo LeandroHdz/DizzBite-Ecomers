@@ -43,7 +43,7 @@ const products = [
 const ScrollRecentProducts = () => {
     return (
         <div className="m-10">
-           <h2>Productos Recientes</h2>
+           <h2 className="text-2xl font-semibold mb-4">Productos Recientes</h2>
            <ScrollArea className="w-full whitespace-nowrap ">
            <div className="flex w-max space-x-4 p-4">
            {products.map((product, index) => (
