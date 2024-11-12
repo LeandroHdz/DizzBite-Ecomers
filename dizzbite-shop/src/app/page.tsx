@@ -2,7 +2,7 @@
 import Footer from "@/components/footer";
 import HeroSection from "@/components/headres/heroSection";
 import NavbarDesktop from "@/components/headres/NavbarDesktop";
-import ScrollCard from "@/components/sectionScroll/scrollCard";
+import ProductPopulares from "@/components/sectionScroll/ProductPopulares";
 import CatPopulares from "@/components/sectionScroll/catPopulares";
 import ScrollProducts from "@/components/sectionScroll/scrollProducts";
 import PromoCard from "@/components/mc/promoCard";
@@ -56,7 +56,48 @@ const products = [
 ];
 
 
+const dataProductPopulares = [
+  {
+    id:1,
+    src:'/test/populares/1.webp'
+  },
+  {
+    id:2,
+    src:'/test/populares/2.webp'
+  },
+  {
+    id:3,
+    src:'/test/populares/3.webp'
+  },
+  {
+    id:4,
+    src:'/test/populares/4.webp'
+  },
+  {
+    id:5,
+    src:'/test/populares/5.webp'
+  },
+  {
+    id:6,
+    src:'/test/populares/6.webp'
+  },
+  {
+    id:7,
+    src:'/test/populares/7.webp'
+  },
+  {
+    id:8,
+    src:'/test/populares/8.webp'
+  },
+  {
+    id:9,
+    src:'/test/populares/9.webp'
+  },
+  
+  
 
+
+]
 
 
 export default function Home() {
@@ -76,7 +117,7 @@ export default function Home() {
         title='¡Oferta Exclusiva!'
         description='Aprovecha un 20% de descuento en toda la tienda. Solo por tiempo limitado.'
         btnText="Comprar Ahora" />
-      <ScrollCard />
+      <ProductPopulares title='Productos Populares' data={dataProductPopulares} />
       <ScrollProducts title="Recomendados" products={products} />
       <Footer />
     </>
