@@ -24,7 +24,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ image, name, price, discount,
     const toggleLike = () => setLiked(!liked);
 
     return (
-        <div className="w-64 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center overflow-hidden">
+        <div className="w-72 bg-white border border-gray-200 rounded-lg shadow-lg dark:bg-gray-800 dark:border-gray-700 flex flex-col items-center overflow-hidden">
             <a href="#" className="w-full">
                 <img className="p-5 rounded-t-lg h-48 object-cover w-full" src={image} alt={`${name} image`} />
             </a>
