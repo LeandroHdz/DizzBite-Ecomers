@@ -1,29 +1,88 @@
-import { Card, CardTitle, CardDescription, CardContent } from "./ui/card";
+import * as React from "react";
+import ProductCard from "@/components/Borrar/testBorrar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
-const PromoCard = () => (
-  <Card className="w-full p-2 px-20  h-64 flex flex-col lg:flex-row overflow-hidden  shadow-lg border-none transform hover:scale-105 transition duration-300 ease-in-out">
-    {/* Imagen en la Izquierda */}
-    <div className="lg:w-1/2">
-      <img 
-        src="/test/jakub-kapusnak-Hj53USePB1E-unsplash.jpg" 
-        alt="Promoción Especial" 
-        className="w-full h-full object-cover"
-      />
-    </div>
+const products = [
+  {
+    id: 1,
+    image: '/promos/imgTest.png',
+    name: 'Apple Watch Series 7 GPS',
+    price: 599,
+    discount: 10,
+  },
+  {
+    id: 2,
+    image: '/promos/imgTest1.png',
+    name: 'Apple Watch Series 7 GPS',
+    price: 599,
+    discount: 10,
+    rating: 4,
+  },
+  {
+    id: 3,
+    image: '/promos/imgTest2.jpeg',
+    name: 'Apple Watch Series 7 GPS',
+    price: 599,
+    discount: 10,
+    rating: 3,
+  },
+  {
+    id: 4,
+    image: '/promos/imgTest3.jpg',
+    name: 'Samsung Galaxy Buds Pro',
+    price: 199,
+  },
+  {
+    id: 5,
+    image: '/promos/imgTest4.png',
+    name: 'Sony WH-1000XM4 Headphones',
+    price: 349,
+    discount: 15,
+  },
+  {
+    id: 6,
+    image: '/promos/imgTest5.jpg',
+    name: 'Fitbit Charge 5',
+    price: 179,
+  },
+];
 
-    {/* Contenido a la Derecha */}
-    <CardContent className="lg:w-1/2 p-8 flex flex-col justify-center bg-gradient-to-r from-slate-950 to-purple-900 text-white">
-      <CardTitle className="text-4xl font-extrabold mb-2 drop-shadow-md">
-        ¡Oferta Exclusiva!
-      </CardTitle>
-      <CardDescription className="text-lg mb-6 drop-shadow-md">
-        Aprovecha un <span className="font-bold">20% de descuento</span> en toda la tienda. Solo por tiempo limitado.
-      </CardDescription>
-      <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold shadow-md hover:shadow-lg hover:bg-gray-100 transition duration-200 ease-in-out transform hover:-translate-y-1">
-        Comprar Ahora
-      </button>
-    </CardContent>
-  </Card>
-);
+export function CarouselSize() {
+  return (
+    <section className="mx-20 mb-10">
+      <h2 className="text-2xl font-semibold mb-4">Test</h2>
+      <Carousel opts={{ align: "start" }} className="w-full relative">
+        <CarouselContent>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <CarouselItem key={index}>
+              <div className="flex w-max space-x-4 pb-5">
+                {products.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    image={product.image}
+                    name={product.name}
+                    price={product.price}
+                    discount={product.discount}
+                    rating={product.rating}
+                  />
+                ))}
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
 
-export default PromoCard;
+        {/* Flechas en la esquina inferior derecha */}
+        <div className="absolute  right-5 mt-2 flex space-x-2 ">
+          <CarouselPrevious className="bg-gray-800 text-white rounded-full p-2 hover:bg-gray-600 " />
+          <CarouselNext className="bg-gray-800 text-white rounded-full p-2 hover:bg-gray-600" />
+        </div>
+      </Carousel>
+    </section>
+  );
+}
