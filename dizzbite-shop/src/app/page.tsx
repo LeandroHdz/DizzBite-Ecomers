@@ -1,59 +1,17 @@
 "use client"
+import { useState, useEffect } from "react";
 import Footer from "@/components/footer";
 import HeroSection from "@/components/headres/heroSection";
 import NavbarDesktop from "@/components/headres/NavbarDesktop";
 import ProductPopulares from "@/components/sectionScroll/productPopulares";
 import CatPopulares from "@/components/sectionScroll/catPopulares";
+import {type categories} from "@/components/sectionScroll/catPopulares";
 import ScrollProducts from "@/components/sectionScroll/scrollProducts";
 import PromoCard from "@/components/mc/promoCard";
 
 
 
-const products = [
-  {
-    id: 1,
-    image: '/promos/imgTest.png',
-    name: 'Apple Watch Series 7 GPS',
-    price: 599,
-    discount: 10, // 10% de descuento
-  },
-  {
-    id: 2,
-    image: '/promos/imgTest1.png',
-    name: 'Apple Watch Series 7 GPS',
-    price: 599,
-    discount: 10, // 10% de descuento
-    rating: 4
-  },
-  {
-    id: 3,
-    image: '/promos/imgTest2.jpeg',
-    name: 'Apple Watch Series 7 GPS',
-    price: 599,
-    discount: 10, // 10% de descuento
-    rating: 3
-  },
 
-  {
-    id: 4,
-    image: '/promos/imgTest3.jpg',
-    name: 'Samsung Galaxy Buds Pro',
-    price: 199,
-  },
-  {
-    id: 5,
-    image: '/promos/imgTest4.png',
-    name: 'Sony WH-1000XM4 Headphones',
-    price: 349,
-    discount: 15, // 15% de descuento
-  },
-  {
-    id: 6,
-    image: '/promos/imgTest5.jpg',
-    name: 'Fitbit Charge 5aasdasasds asd',
-    price: 179,
-  },
-];
 
 const productsRecientes = [
   {
@@ -163,13 +121,53 @@ const dataProductPopulares = [
 
 ]
 
+// Define el tipo Category si aún no lo has hecho
+type Category = {
+  id: number;
+  name: string;
+  icon: string; // Ajusta el tipo si necesitas `IconName`
+};
+
+// Define las categorías directamente en este archivo
+const categories: Category[] = [
+  { id: 1, name: "Electrónica", icon: "Tv" },
+  { id: 2, name: "Ropa", icon: "Shirt" },
+  { id: 3, name: "Hogar", icon: "Home" },
+  { id: 4, name: "Carnes", icon: "Beef" },
+  { id: 5, name: "Frutas", icon: "Banana" },
+  { id: 6, name: "Electrónica", icon: "Tv" },
+  { id: 7, name: "Ropa", icon: "Shirt" },
+  { id: 8, name: "Hogar", icon: "Home" },
+  { id: 9, name: "Carnes", icon: "Beef" },
+  { id: 10, name: "Frutas", icon: "Banana" },
+];
+
 
 export default function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://127.0.0.1:8000/api/shop/product/');
+        if (response.ok) {
+          const data = await response.json();
+          setProducts(data);
+        } else {
+          console.error('Error al obtener los productos');
+        }
+      } catch (error) {
+        console.error('Error de conexión', error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <>
       <NavbarDesktop />
       <HeroSection />
-      <CatPopulares />
+      <CatPopulares categories={categories} />
       <ScrollProducts title="Más Vendidos" products={products} />
       <PromoCard img="/test/vecteezy_photorealistic-product-shot-food-photography-ketc_45476337.jpg"
         title='¡Oferta Exclusiva!'

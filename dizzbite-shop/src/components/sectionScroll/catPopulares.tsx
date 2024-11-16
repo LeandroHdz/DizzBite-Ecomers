@@ -2,28 +2,30 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 import { Tv, Shirt, Home, Beef, Banana } from "lucide-react"; 
 
+// Definir los nombres de iconos válidos como un tipo de unión
+type IconName = 'Tv' | 'Shirt' | 'Home' | 'Beef' | 'Banana';
+
 // Mapea los nombres de los iconos a los componentes de Lucide
-const iconMap = {
+const iconMap: Record<IconName, JSX.Element> = {
     Tv: <Tv />,
     Shirt: <Shirt />,
     Home: <Home />,
     Beef: <Beef />,
     Banana: <Banana />
 };
-const categories = [
-    { name: "Electrónica", icon: "Tv" },
-    { name: "Ropa", icon: "Shirt" },
-    { name: "Hogar", icon: "Home" },
-    {name:"Carnes", icon: "Beef"},
-    {name:"Frutas", icon:"Banana"},
-    { name: "Electrónica", icon: "Tv"},
-    { name: "Ropa", icon: "Shirt"},
-    { name: "Hogar", icon: "Home" },
-    {name:"Carnes", icon: "Beef"},
-    {name:"Frutas", icon:"Banana"}
-];
 
-const CatPopulares = () => {
+// Actualiza el tipo de `icon` para que solo acepte los valores definidos en IconName
+type Category = {
+    id: number;
+    name: string;
+    icon: IconName;
+};
+
+interface CatPopularesProps {
+    categories: Category[];
+}
+
+const CatPopulares: React.FC<CatPopularesProps> = ({ categories }) => {
     return (
         <div className="m-10">
             <h2 className="text-2xl font-semibold mb-4">Categorías Populares</h2>
